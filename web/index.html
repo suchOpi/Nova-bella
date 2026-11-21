@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova Bella · Calzado con estilo</title>
+<meta name="description" content="Nova Bella: calzado femenino. Elige tu modelo, color y talla y compra con QR o escríbenos por WhatsApp.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="logo" href="#top">Nova Bella</a>
+  <nav>
+    <a href="#productos">Productos</a>
+    <a href="#como-comprar">Cómo comprar</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <button class="cart-btn" id="open-cart" aria-label="Abrir carrito">🛍️ <span id="cart-count">0</span></button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="eyebrow">Nueva colección</p>
+    <h1>Pasos que se notan.</h1>
+    <p>Calzado femenino en tres líneas: Clásica, Urbana y Fiesta.</p>
+    <a class="btn" href="#productos">Ver productos</a>
+  </section>
+
+  <!-- 1) Primero los productos con su precio (pedido de la clienta: lo menos cargado posible) -->
+  <section id="productos" class="section">
+    <div class="head">
+      <h2>Productos</h2>
+      <div class="chips" id="filtros" role="tablist" aria-label="Filtrar por línea"></div>
+    </div>
+    <div class="catalog" id="catalogo"></div>
+  </section>
+
+  <!-- 2) Abajo, recién, los métodos de compra -->
+  <section id="como-comprar" class="section how">
+    <h2>Cómo comprar</h2>
+    <div class="steps">
+      <div class="step"><span>1</span><b>Elige</b><p>Escoge modelo, color y talla. Sin reservas: la compra es directa.</p></div>
+      <div class="step"><span>2</span><b>Paga por QR</b><p>Paga con QR desde tu app del banco o escríbenos por WhatsApp.</p></div>
+      <div class="step"><span>3</span><b>Recibe</b><p>Delivery a tu domicilio o retira en tienda. Factura digital si la necesitas.</p></div>
+    </div>
+    <div class="pay">
+      <div><b>📱 Pago QR</b><br>Disponible en la web</div>
+      <div><b>🚚 Delivery</b><br>A domicilio en tu ciudad</div>
+      <div><b>🧾 Factura digital</b><br>Para compras en línea</div>
+      <div><b>🔁 Cambio de talla</b><br>¿Es un regalo? Cambiamos el modelo o la talla.</div>
+    </div>
+  </section>
+
+  <section id="contacto" class="section contact">
+    <h2>Contacto</h2>
+    <p>Santa Cruz de la Sierra · Próximamente La Paz</p>
+    <a class="btn" id="wa-contact" target="_blank" rel="noopener" href="#">Escribir por WhatsApp</a>
+  </section>
+</main>
+
+<footer>© Nova Bella · Boceto de propuesta de diseño</footer>
+
+<!-- carrito -->
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head"><h3>Tu carrito</h3><button class="x" id="close-cart" aria-label="Cerrar">✕</button></div>
+  <div id="cart-items" class="cart-items"></div>
+  <div class="drawer-foot">
+    <div class="row"><span>Total</span><b id="cart-total">Bs 0</b></div>
+    <label class="opt"><input type="radio" name="entrega" value="delivery" checked> Delivery a domicilio</label>
+    <label class="opt"><input type="radio" name="entrega" value="tienda"> Retiro en tienda</label>
+    <label class="opt"><input type="checkbox" id="factura"> Necesito factura digital</label>
+    <button class="btn full" id="pay-qr" disabled>Pagar con QR</button>
+    <button class="btn ghost full" id="pay-wa" disabled>Pedir por WhatsApp</button>
+    <p class="hint">Demostración: el pago con QR se conectará a la pasarela del banco.</p>
+  </div>
+</aside>
+<div class="scrim" id="scrim"></div>
+
+<div class="modal" id="qr-modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-card">
+    <h3>Paga con QR</h3>
+    <div class="qr-fake" aria-hidden="true"></div>
+    <p id="qr-total" class="qr-total"></p>
+    <p class="hint">Escanea con la app de tu banco. Al confirmarse el pago recibirás tu comprobante.</p>
+    <button class="btn full" id="qr-close">Entendido</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
